@@ -1,0 +1,82 @@
+Challenge 1 :-
+
+Have the function FirstFactorial(num) take the num parameter being passed and return the factorial of it. For example: if num = 4, then your program should return (4 * 3 * 2 * 1) = 24. For the test cases, the range will be between 1 and 18 and the input will always be an integer. 
+
+Solution:
+
+function problem(a) {
+let prod = 1;
+
+for (var i = 1 ; i <= a ; i++){
+  prod = prod * i;
+
+}
+  return prod;
+}
+
+console.log(problem(8));
+
+Challenge 2 : -
+
+Reversing the string.
+
+Solution
+
+let a = "hello";
+let b = a.split("");
+let c = b.reverse();
+let d = c.join("");
+console.log(d);
+
+Challenge 3 : -
+
+Have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
+
+solution
+
+function LetterChanges(str) { 
+
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+  var newStr = "";
+  var loc;
+
+  for (var i = 0; i < str.length; i++) {
+    loc = alphabet.indexOf(str[i]);
+    if (loc === 25) {
+      newStr = newStr + "a";
+    } else if (loc === -1) {
+      newStr = newStr + str[i];
+    } else {          
+      newStr = newStr + alphabet[loc + 1];
+    }
+  }
+  
+  return newStr.replace(/[aeiou]/g, function(letter) {return letter.toUpperCase()});  
+         
+}
+
+
+
+Challenge 4 : -
+
+The longest word in the given string
+
+Solution
+
+function LongestWord(sen) { 
+
+var arr = sen.match(/[a-z0-9]+/gi);
+
+  var sorted = arr.sort(function(a, b) {
+    return b.length - a.length;
+  });
+
+
+  return sorted[0];
+
+         
+}
+   
+// keep this function call here 
+LongestWord(readline());
+
